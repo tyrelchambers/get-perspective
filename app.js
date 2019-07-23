@@ -41,12 +41,13 @@ const calcFunc = (num) => {
 
 const createLiAndCalc = (num, k, templates) => {
   const li = document.createElement('LI');
+  
   let calc = (num / templates[k].val).toFixed(2);
-  let icon = templates[k].icon;
-  let output = document.createTextNode(`~${calc} ${k}`);
-
-  li.insertAdjacentHTML('afterbegin', icon);
-  li.append(output);
+  let output = `
+    ${templates[k].icon}
+    <p>~ <span class="highlight">${calc}</span> ${k}</p>
+  `;
+  li.innerHTML = output;
 
   return list.appendChild(li);
 }

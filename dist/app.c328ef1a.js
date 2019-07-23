@@ -159,10 +159,8 @@ var calcFunc = function calcFunc(num) {
 var createLiAndCalc = function createLiAndCalc(num, k, templates) {
   var li = document.createElement('LI');
   var calc = (num / templates[k].val).toFixed(2);
-  var icon = templates[k].icon;
-  var output = document.createTextNode("~".concat(calc, " ").concat(k));
-  li.insertAdjacentHTML('afterbegin', icon);
-  li.append(output);
+  var output = "\n    ".concat(templates[k].icon, "\n    <p>~ <span class=\"highlight\">").concat(calc, "</span> ").concat(k, "</p>\n  ");
+  li.innerHTML = output;
   return list.appendChild(li);
 };
 
